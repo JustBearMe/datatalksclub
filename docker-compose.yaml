@@ -1,0 +1,10 @@
+version: "3.9"
+services:
+  garbage-model:
+    image: capstone-2-model:xception-v4-001
+  gateway:
+    image: capstone-2-gateway:002
+    environment:
+      - TF_SERVING_HOST=garbage-model:8500
+    ports:
+      - "9696:9696"
